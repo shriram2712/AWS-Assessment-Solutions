@@ -1,0 +1,11 @@
+Create ELB with target type as IP, registering each instance to the ELB . Document the steps followed.
+
+STEPS :
+
+1. Go to EC2 services and then navigate to the Load Balanacer tab.
+2. Click on create LOad balanacer and select Application LOad Balancer
+3. GIve a name for the LOad balancer and select the AZ from the available AZ in the selected VPC. Click on NEXT
+4. Select the required security groups from the Configure security groups tab
+5. In the configure Routing tab, click on create new ROuting group and select target type as IP. Give a name for the target group and then click on next
+6. In the register targets tab, specify the IP targets (Private IPs of the instances in the VPC) and click on next
+7. REview and create the load balancer

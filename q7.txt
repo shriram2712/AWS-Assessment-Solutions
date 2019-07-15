@@ -1,0 +1,31 @@
+Create an Autoscaling group and configure launch configuration it with Amazon linux ami and userdata to deploy basic website. Configure autoscaling.
+
+STEPS :
+
+1. We begin by creating a launch configuration for our Auto-Scaling group
+2. Click on the Launch Configuration tab under the EC2 services
+3. Click on create new launch configuration and select the required AMI ( Amazon LInux AMI ami-035b3c7efe6d061d5)
+4. Choose the instance type and then give a name for the launch config. Also  in the additional details part, enter the script for the website in the user data section
+
+#!/bin/bash
+yum update -y
+yum install httpd mod_ssl
+service httpd start
+chkconfig httpd on
+systemctl start httpd
+systemctl enable httpd
+usermod -a -G apache ec2-user
+chown -R ec2-user:apache /var/www
+chmod 2775 /var/www
+find /var/www -type d -exec chmod 2775 {} \;
+find /var/www -type f -exec chmod 0664 {} \;
+echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
+
+5. Finish the launch configuration process by selecting the storage, the security grps and review them
+6. NOw, we get an option asking us whether we want to create an Auto Scaling group, click yes
+7. Alternatively, you can create an auto scaling group from the tab with the same name and choose the required launch configuration
+8. Set the name of the group and choose the VPC and the subsequent subnet to launch the group
+9. Next in configure the scaling policies, set the min and the max amount of instances.
+10. Add tags for the groups as required
+11. Review and complete the process
+12. Now you can also add instances from the instances tab if they are in the same VPC by updating the value of MAX

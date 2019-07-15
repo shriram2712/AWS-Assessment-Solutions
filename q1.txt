@@ -1,0 +1,24 @@
+QUESTION :     Create an instance, install apache server and add an index.html file and view that file in the browser. Take snapshot of this instance and deploy it in another region.
+
+Deliverable: Mention the steps for achieving this
+
+STEPS :
+
+1. GO to EC2 services and click on Launch instance
+2. Select the AMI and select the required volume types, security groups, tags etc
+3. After selecting all the configurations, click on review and then click on ok. THe instance will be c reated and launched
+4. Using the key pair private key file, go to terminal and enter the command
+	ssh -i shriram.pem ubuntu@ec2-34-203-246-22.compute-1.amazonaws.com
+5. After remote access into the server, install apache server and then enter the following
+	apt install apache2
+	ufw allow 'Apache'
+	ufw status
+	systemctl status apache2
+
+6. Now go to the /var/www/html folder and update the contents of the index.html folder
+7. Browse the DNS address of the instance and we will be able to see the contents of index.html
+8. Now go to volumes and click on the create snapshot button. Enter the required details.
+9. Now we can find this snaphot under the snapshot tab and can recreate an instance from the snapshot
+10. We now copy this snapshot to a new region eg Ohio
+11. Next, we create Image of this snapshot in this new region
+12.IN the AMI Tab, we launch the instance using this image
