@@ -5,7 +5,7 @@ import boto3
 import logging
 
 #Initialize the logger
-logging.basicConfig(filename="newfile.log", 
+logging.basicConfig(filename="q2.log", 
                     format='%(asctime)s %(message)s', 
                     filemode='w') 
 #Creating an object 
