@@ -10,7 +10,7 @@ from boto3.dynamodb.conditions import Key, Attr
 import logging
 
 #Initialize the logger
-logging.basicConfig(filename="q8.log", 
+logging.basicConfig(filename="q10.log", 
                     format='%(asctime)s %(message)s', 
                     filemode='w') 
 #Creating an object 

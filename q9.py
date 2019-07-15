@@ -21,7 +21,7 @@ import boto3
 import logging
 
 #Initialize the logger
-logging.basicConfig(filename="q8.log", 
+logging.basicConfig(filename="q9.log", 
                     format='%(asctime)s %(message)s', 
                     filemode='w') 
 #Creating an object 
